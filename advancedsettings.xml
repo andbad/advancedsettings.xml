@@ -1,0 +1,348 @@
+<advancedsettings> <!--For reference: http://kodi.wiki/view/Advancedsettings.xml-->
+ 	<loglevel hide="false">0</loglevel>
+ 	<!--<jsonrpc>
+		<compactoutput>false</compactoutput>
+		<tcpport>9999</tcpport>
+	</jsonrpc> -->
+	<skiploopfilter>0</skiploopfilter>
+	<video>
+		<subsdelayrange>10</subsdelayrange>
+		<audiodelayrange>10</audiodelayrange>
+		<usetimeseeking>true</usetimeseeking>
+		<timeseekforwardbig>600</timeseekforwardbig>
+		<timeseekbackwardbig>-600</timeseekbackwardbig>
+		<percentseekforward>2</percentseekforward>
+		<percentseekbackward>-2</percentseekbackward>
+		<percentseekforwardbig>10</percentseekforwardbig>
+		<percentseekbackwardbig>-10</percentseekbackwardbig>
+		<fullscreenonmoviestart>true</fullscreenonmoviestart>
+		<defaultplayer>VideoPlayer</defaultplayer>
+		<excludefromscan>
+			<!-- <regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
+		</excludefromscan>
+		<excludefromlisting>
+			<!--  <regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
+		</excludefromlisting>
+		<excludetvshowsfromscan>
+			<!-- <regexp>[!-._ \\/]sample[-._ \\/]</regexp> -->
+		</excludetvshowsfromscan>
+
+		<playcountminimumpercent>90</playcountminimumpercent>
+		<ignoresecondsatstart>180</ignoresecondsatstart>
+		<ignorepercentatend>8</ignorepercentatend>
+		<vdpauscaling>true</vdpauscaling>
+		<enablehighqualityhwscalers>true</enablehighqualityhwscalers>
+		<dxvaallowhqscaling>true</dxvaallowhqscaling>
+		<ppffmpegdeinterlacing>linblenddeint</ppffmpegdeinterlacing>
+		<ppffmpegpostprocessing>ha:128:7,va,dr</ppffmpegpostprocessing>
+		<autoscalemaxfps>30</autoscalemaxfps>
+		<adjustrefreshrate>
+			<!--<override>
+				<fpsmin>29.96</fpsmin>
+				<fpsmax>30.01</fpsmax>
+				<refreshmin>59.0</refreshmin>
+				<refreshmax>61.0</refreshmax>
+			</override>
+			<fallback>
+				<refreshmin>49.0</refreshmin>
+				<refreshmax>51.0</refreshmax>
+			</fallback>-->
+		</adjustrefreshrate>
+		<!-- <checkdxvacompatibility>value</checkdxvacompatibility> -->
+		<useocclusionquery>-1</useocclusionquery>
+		<fpsdetect>1</fpsdetect>
+		<latency>
+			<delay>0</delay>
+			<!--<refresh>
+				<min>23</min>
+				<max>24</max>
+				<delay>125</delay>
+			</refresh>-->
+			<!--<refresh>
+				<rate>50</rate>
+				<delay>50</delay>
+			</refresh>-->
+		</latency>
+		<stereoscopicregex3d>[-. _]3d[-. _]</stereoscopicregex3d>
+		<stereoscopicregexsbs>[-. _]h?sbs[-. _]</stereoscopicregexsbs>
+		<stereoscopicregextab>[-. _]h?tab[-. _]</stereoscopicregextab>
+		<assfixedworks>false</assfixedworks>
+		<cleandatetime>(.+[^ _\,\.\(\)\[\]\-])[ _\.\(\)\[\]\-]+(19[0-9][0-9]|20[0-1][0-9])([ _\,\.\(\)\[\]\-][^0-9]|$)</cleandatetime>
+		<cleanstrings>
+			<regexp>[ _\,\.\(\)\[\]\-](ac3|dts|custom|dc|divx|divx5|dsr|dsrip|dutch|dvd|dvdrip|dvdscr|dvdscreener|screener|dvdivx|ca$
+			<regexp>(\[.*\])</regexp>
+		</cleanstrings>
+	</video>
+	<audio>
+		<headroom>0</headroom>
+		<defaultplayer>paplayer</defaultplayer>
+		<excludefromscan> 
+		  	<!-- <regexp>[-\._ ](podcast)[-\._ ]</regexp> -->
+		</excludefromscan>
+		<excludefromlisting> 
+			<!-- <regexp>[-\._ ](podcast)[-\._ ]</regexp> -->
+		</excludefromlisting>
+		<ac3downmixgain>12.0</ac3downmixgain>
+		<playcountminimumpercent>99</playcountminimumpercent> 
+		<applydrc>-1.0</applydrc> 
+		<limiterhold>0.025</limiterhold> 
+		<limiterrelease>0.1</limiterrelease> 
+	</audio>
+	<edl>
+		<mergeshortcommbreaks>false</mergeshortcommbreaks>
+		<maxcommbreaklength>250</maxcommbreaklength>
+		<mincommbreaklength>90</mincommbreaklength>
+		<maxcommbreakgap>120</maxcommbreakgap>
+		<commbreakautowait>0</commbreakautowait>
+		<commbreakautowind>0</commbreakautowind>
+	</edl>
+	<pvr>
+		<timecorrection>0</timecorrection>
+		<infotoggleinterval>3000</infotoggleinterval>
+		<channeliconsautoscan>true</channeliconsautoscan>
+		<autoscaniconsuserset>false</autoscaniconsuserset>
+		<numericchannelswitchtimeout>1000</numericchannelswitchtimeout>
+	</pvr>
+	<epg>
+		<updatecheckinterval>300</updatecheckinterval>
+		<cleanupinterval>900</cleanupinterval>
+		<activetagcheckinterval>60</activetagcheckinterval>
+		<retryinterruptedupdateinterval>30</retryinterruptedupdateinterval>
+		<updateemptytagsinterval>60</updateemptytagsinterval>
+		<displayupdatepopup>true</displayupdatepopup>
+		<displayincrementalupdatepopup>false</displayincrementalupdatepopup>
+	</epg>
+	<!-- <forcedswaptime>1</forcedswaptime> -->
+	<videoextensions>
+		<!-- <add>.ex1|.ex2</add> -->
+		<!-- <remove>.ex3|.ex4</remove> -->
+	</videoextensions>
+	<discstubextensions>
+		<!-- <add>.dvd|.blu</add> -->
+		<!-- <remove>.cd|.vhs</remove> -->
+	</discstubextensions>
+	<languagecodes>
+		<code>
+			<short>alt</short>
+			<long>Alternate</long>
+		</code>
+	</languagecodes>
+	<sorttokens>
+		<token>the</token>
+	</sorttokens>
+	<moviestacking>
+		<regexp>(.*?)([ _.-]*(?:cd|dvd|p(?:ar)?t|dis[ck])[ _.-]*[0-9]+)(.*?)(\.[^.]+)$</regexp>
+		<regexp>(.*?)([ _.-]*(?:cd|dvd|p(?:ar)?t|dis[ck])[ _.-]*[a-d])(.*?)(\.[^.]+)$</regexp>
+		<regexp>(.*?)([ ._-]*[a-d])(.*?)(\.[^.]+)$</regexp>
+	</moviestacking>
+	<folderstacking>
+		<regexp>((cd|dvd|dis[ck])[0-9]+)$</regexp>
+	</folderstacking>
+	<tvshowmatching>
+		<regexp>s([0-9]+)[ ._x-]*e([0-9]+(?:(?:[a-i]|\\.[1-9])(?![0-9]))?)([^\\\\/]*)$</regexp>
+		<regexp>[\._ -]()[Ee][Pp]_?([0-9]+)([^\\/]*)$</regexp>
+		<regexp>([0-9]{4})[\.-]([0-9]{2})[\.-]([0-9]{2})</regexp>
+		<regexp>([0-9]{2})[\.-]([0-9]{2})[\.-]([0-9]{4})</regexp>
+		<regexp>[\\/\._ \[\(-]([0-9]+)x([0-9]+)([^\\/]*)$</regexp>
+		<regexp>[\\/\._ -]([0-9]+)([0-9][0-9])([\._ -][^\\/]*)$</regexp>
+		<regexp>[\/._ -]p(?:ar)?t[_. -]()([ivx]+)([._ -][^\/]*)$</regexp>
+	</tvshowmatching>	
+	<tvmultipartmatching>^[-_ex]+([0-9]+(?:(?:[a-i]|\\.[1-9])(?![0-9]))?)</tvmultipartmatching>
+	<trailermatching>
+		<regexp>(.*?)(_Trailer)(\.[^.]+)$</regexp>
+	</trailermatching>	
+	<videolibrary>
+		<allitemsonbottom>false</allitemsonbottom>
+		<cleanonupdate>false</cleanonupdate>
+		<usefasthash>true</usefasthash>
+		<recentlyaddeditems>35</recentlyaddeditems>
+		<itemseparator> / </itemseparator>
+		<exportautothumbs>false</exportautothumbs>
+		<importwatchedstate>false</importwatchedstate>
+		<importresumepoint>false</importresumepoint>
+		<dateadded>1</dateadded>
+	</videolibrary>
+	<videoscanner>
+		<ignoreerrors>true</ignoreerrors>
+	</videoscanner>
+	<imageres>720</imageres>
+	<fanartres>1080</fanartres>
+	<fanart>
+		<!-- <remove>fanart.jpg</remove>-->
+		<!-- <add>backdrop.jpg</add>-->
+	</fanart>
+	<musicthumbs>
+		<!-- <remove>folder.jpg</remove> -->
+		<!-- <add>thumb.jpg|cover.jpg</add> -->
+	</musicthumbs>
+	<imagescalingalgorithm>bicubic</imagescalingalgorithm>
+	<playlistasfolders>true</playlistasfolders>
+	<playlistretries>100</playlistretries>
+	<playlisttimeout>20</playlisttimeout>
+	<videodatabase>
+		<!-- <type>mysql</type>
+		<host>192.168.0.10</host>
+		<port>6666</port>
+		<name>kodi_video</name>
+		<user>kodi</user>
+		<pass>kodi</pass>
+		<compression>false</compression> 
+		<key><key>
+		<cert><cert>
+		<ca><ca>
+		<capath><capath>
+		<ciphers><ciphers> -->
+	</videodatabase>
+        <musicdatabase>
+                <!-- <type>mysql</type>
+                <host>192.168.0.10</host>
+                <port>6666</port>
+                <name>kodi_video</name>
+                <user>kodi</user>
+                <pass>kodi</pass>
+                <compression>false</compression> 
+                <key><key>
+                <cert><cert>
+                <ca><ca>
+                <capath><capath>
+                <ciphers><ciphers> -->
+        </musicdatabase>
+        <tvdatabase>
+                <!-- <type>mysql</type>
+                <host>192.168.0.10</host>
+                <port>6666</port>
+                <name>kodi_video</name>
+                <user>kodi</user>
+                <pass>kodi</pass>
+                <compression>false</compression> 
+                <key><key>
+                <cert><cert>
+                <ca><ca>
+                <capath><capath>
+                <ciphers><ciphers> -->
+        </tvdatabase>
+        <epgdatabase>
+                <!-- <type>mysql</type>
+                <host>192.168.0.10</host>
+                <port>6666</port>
+                <name>kodi_video</name>
+                <user>kodi</user>
+                <pass>kodi</pass>
+                <compression>false</compression> 
+                <key><key>
+                <cert><cert>
+                <ca><ca>
+                <capath><capath>
+                <ciphers><ciphers> -->
+        </epgdatabase>
+        <adspdatabase>
+                <!-- <type>mysql</type>
+                <host>192.168.0.10</host>
+                <port>6666</port>
+                <name>kodi_video</name>
+                <user>kodi</user>
+                <pass>kodi</pass>
+                <compression>false</compression> 
+                <key><key>
+                <cert><cert>
+                <ca><ca>
+                <capath><capath>
+                <ciphers><ciphers> -->
+        </adspdatabase>
+	<musicextensions>
+		<!-- <add>.ex1|.ex2</add>
+		<remove>.ex3|.ex4</remove> -->
+	</musicextensions>
+	<cddbaddress>freedb.freedb.org</cddbaddress>
+	<songinfoduration>10</songinfoduration>
+	<musicfilenamefilters>
+		<filter>%A - %T</filter>
+	</musicfilenamefilters>
+	<musiclibrary>
+		<hideallitems>true</hideallitems>
+		<allitemsonbottom>true</allitemsonbottom>
+		<promptfulltagscan>false</promptfulltagscan>
+		<recentlyaddeditems>35</recentlyaddeditems>
+		<albumformat>%B - %Y</albumformat>
+		<prioritiseapetags>true</prioritiseapetags>
+		<itemseparator> / </itemseparator>
+		<artistseparators>
+			<separator>;</separator>
+			<separator>:</separator>
+			<separator>|</separator>
+			<separator> feat. </separator>
+			<separator> ft. </separator>
+		</artistseparators>
+		<dateadded>1</dateadded>
+	</musiclibrary>
+	<pictureextensions>
+		<!-- <add>.ex1|.ex2</add>
+		<remove>.ex3|.ex4</remove> -->
+	</pictureextensions>
+	<pictureexcludes>
+		<!-- <regexp>small</regexp>
+		<regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
+	<pictureexcludes>
+	<slideshow>
+		<panamount>2.5</panamount>
+		<zoomamount>5.0</zoomamount>
+		<blackbarcompensation>20</blackbarcompensation>  
+	</slideshow>
+	<samba>
+		<doscodepage></doscodepage>
+		<clienttimeout>10</clienttimeout>
+		<statfiles>true</statfiles>
+	</samba>
+	<hosts>
+		<!-- <entry name="HOSTNAME">IPADDRESS</entry> -->
+	</hosts>
+	<network>
+		<curlclienttimeout>10</curlclienttimeout>
+		<curllowspeedtime>20</curllowspeedtime>
+		<curlretries>2</curlretries
+		<httpproxyusername></httpproxyusername>
+		<httpproxypassword></httpproxypassword>
+	</network>
+	<cache>
+		<memorysize>0</memorysize>
+		<buffermode>0</buffermode>
+		<readfactor>4.0</readfactor>
+	</cache>
+	<airtunesport></airtunesport>
+	<airplayport></airplayport>
+	<packagefoldersize>200</packagefoldersize>
+	<detectasudf>false</detectasudf>
+	<pathsubstitution>
+		<substitute>
+			<!-- <from>G:\dvds\</from>
+			<to>smb://somecomputer/g-share/dvds/</to> -->
+		</substitute>
+	</pathsubstitution>
+	<remotedelay>10</remotedelay>
+	<enablemultimediakeys>true</enablemultimediakeys>
+	<seeksteps>7, 15, 30, 60, 180, 300, 600, 900, 1800</seeksteps>
+	<touchscreen>
+                <x_offset>0</x_offset>
+                <y_offset>0</y_offset>
+                <x_stretch_factor>1.0</x_stretch_factor>
+                <y_stretch_factor>1.0</y_stretch_factor>
+	</touchscreen>
+	<window>
+		<!-- <width>WIDTH</width>
+		<height>HEIGHT</height> -->
+	</window>
+	<restrictcapsmask>0</restrictcapsmask>
+	<gui>    
+		<algorithmdirtyregions>3</algorithmdirtyregions>
+	</gui>
+	<gui>    
+		<visualizedirtyregions>false</visualizedirtyregions>
+	</gui>
+	<showexitbutton>true</showexitbutton>
+	<fullscreen>false</fullscreen>
+	<splash>true</splash>
+	<!-- <cputempcommand>echo "$(sensors -u | tail -n64 | grep temp1_input | awk '{print $2 }' |awk '{printf("%d\n",$1 + 0.5);}') C"</cputempcommand> -->
+	<!-- <gputempcommand>echo "$(nvidia-settings -tq gpuCoreTemp) C"</gputempcommand> -->
+	<glrectanglehack>no</glrectanglehack>
+	<alwaysontop>yes</alwaysontop>
+</advancedsettings>
