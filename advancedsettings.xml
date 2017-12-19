@@ -20,13 +20,24 @@
 		<excludefromscan>
 			<!-- <regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
 		</excludefromscan>
+		<excludefromscan action="append">
+			<!-- <regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
+		</excludefromscan>
+		<excludefromscan action="prepend">
+			<!-- <regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
+		</excludefromscan>
 		<excludefromlisting>
 			<!--  <regexp>[-\._ ](sample|trailer)[-\._ ]</regexp> -->
 		</excludefromlisting>
 		<excludetvshowsfromscan>
 			<!-- <regexp>[!-._ \\/]sample[-._ \\/]</regexp> -->
 		</excludetvshowsfromscan>
-
+		<excludetvshowsfromscan action="append">
+			<!-- <regexp>[!-._ \\/]sample[-._ \\/]</regexp> -->
+		</excludetvshowsfromscan>
+		<excludetvshowsfromscan action="prepend">
+			<!-- <regexp>[!-._ \\/]sample[-._ \\/]</regexp> -->
+		</excludetvshowsfromscan>
 		<playcountminimumpercent>90</playcountminimumpercent>
 		<ignoresecondsatstart>180</ignoresecondsatstart>
 		<ignorepercentatend>8</ignorepercentatend>
@@ -72,6 +83,12 @@
 			<regexp>[ _\,\.\(\)\[\]\-](ac3|dts|custom|dc|divx|divx5|dsr|dsrip|dutch|dvd|dvdrip|dvdscr|dvdscreener|screener|dvdivx|ca$
 			<regexp>(\[.*\])</regexp>
 		</cleanstrings>
+		<!-- <cleanstrings action="append">
+   			<regexp>(ignore)</regexp>
+  		</cleanstrings>
+		 <cleanstrings action="prepend">
+   			<regexp>(ignore)</regexp>
+  		</cleanstrings> -->
 	</video>
 	<audio>
 		<headroom>0</headroom>
@@ -135,6 +152,12 @@
 		<regexp>(.*?)([ _.-]*(?:cd|dvd|p(?:ar)?t|dis[ck])[ _.-]*[a-d])(.*?)(\.[^.]+)$</regexp>
 		<regexp>(.*?)([ ._-]*[a-d])(.*?)(\.[^.]+)$</regexp>
 	</moviestacking>
+	<!-- <moviestacking action="append">
+      		<regexp>(.*?)([ ._-]*[0-9])(.*?)(\.[^.]+)$</regexp>
+	</moviestacking>
+	<moviestacking action="prepend">
+  		<regexp>(Title)(Volume)(Ignore)(Extension)</regexp>
+	</moviestacking> -->
 	<folderstacking>
 		<regexp>((cd|dvd|dis[ck])[0-9]+)$</regexp>
 	</folderstacking>
@@ -146,7 +169,15 @@
 		<regexp>[\\/\._ \[\(-]([0-9]+)x([0-9]+)([^\\/]*)$</regexp>
 		<regexp>[\\/\._ -]([0-9]+)([0-9][0-9])([\._ -][^\\/]*)$</regexp>
 		<regexp>[\/._ -]p(?:ar)?t[_. -]()([ivx]+)([._ -][^\/]*)$</regexp>
-	</tvshowmatching>	
+		<!-- <regexp>[/\._ \-]()([0-9]+)(-[0-9]+)?</regexp>
+		<regexp defaultseason="1">[/\._ \-]E()([0-9]+)(-[0-9]+)?</regexp> -->
+	</tvshowmatching>
+	<!-- <tvshowmatching action="append">
+		<regexp>(ignore)</regexp>
+	</tvshowmatching>
+	<tvshowmatching action="prepend">
+		<regexp>(ignore)</regexp>
+	</tvshowmatching> -->
 	<tvmultipartmatching>^[-_ex]+([0-9]+(?:(?:[a-i]|\\.[1-9])(?![0-9]))?)</tvmultipartmatching>
 	<trailermatching>
 		<regexp>(.*?)(_Trailer)(\.[^.]+)$</regexp>
@@ -155,7 +186,7 @@
 		<allitemsonbottom>false</allitemsonbottom>
 		<cleanonupdate>false</cleanonupdate>
 		<usefasthash>true</usefasthash>
-		<recentlyaddeditems>35</recentlyaddeditems>
+		<recentlyaddeditems>25</recentlyaddeditems>
 		<itemseparator> / </itemseparator>
 		<exportautothumbs>false</exportautothumbs>
 		<importwatchedstate>false</importwatchedstate>
@@ -180,8 +211,8 @@
 	<playlistretries>100</playlistretries>
 	<playlisttimeout>20</playlisttimeout>
 	<videodatabase>
-		<!-- <type>mysql</type>
-		<host>192.168.0.10</host>
+		<!-- <type>sqlite3</type>
+		<host>/usr/local/kodi/databases</host>
 		<port>6666</port>
 		<name>kodi_video</name>
 		<user>kodi</user>
@@ -194,8 +225,8 @@
 		<ciphers><ciphers> -->
 	</videodatabase>
         <musicdatabase>
-                <!-- <type>mysql</type>
-                <host>192.168.0.10</host>
+                <!-- <type>sqlite3</type>
+                <host>/usr/local/kodi/databases</host>
                 <port>6666</port>
                 <name>kodi_video</name>
                 <user>kodi</user>
@@ -208,8 +239,8 @@
                 <ciphers><ciphers> -->
         </musicdatabase>
         <tvdatabase>
-                <!-- <type>mysql</type>
-                <host>192.168.0.10</host>
+                <!-- <type>sqlite3</type>
+                <host>/usr/local/kodi/databases</host>
                 <port>6666</port>
                 <name>kodi_video</name>
                 <user>kodi</user>
@@ -222,8 +253,8 @@
                 <ciphers><ciphers> -->
         </tvdatabase>
         <epgdatabase>
-                <!-- <type>mysql</type>
-                <host>192.168.0.10</host>
+                <!-- <type>sqlite3</type>
+                <host>/usr/local/kodi/databases</host>
                 <port>6666</port>
                 <name>kodi_video</name>
                 <user>kodi</user>
@@ -236,8 +267,8 @@
                 <ciphers><ciphers> -->
         </epgdatabase>
         <adspdatabase>
-                <!-- <type>mysql</type>
-                <host>192.168.0.10</host>
+                <!-- <type>sqlite3</type>
+                <host>/usr/local/kodi/databases</host>
                 <port>6666</port>
                 <name>kodi_video</name>
                 <user>kodi</user>
@@ -262,9 +293,9 @@
 		<hideallitems>true</hideallitems>
 		<allitemsonbottom>true</allitemsonbottom>
 		<promptfulltagscan>false</promptfulltagscan>
-		<recentlyaddeditems>35</recentlyaddeditems>
-		<albumformat>%B - %Y</albumformat>
-		<prioritiseapetags>true</prioritiseapetags>
+		<recentlyaddeditems>25</recentlyaddeditems>
+		<albumformat>%B</albumformat>
+		<prioritiseapetags>false</prioritiseapetags>
 		<itemseparator> / </itemseparator>
 		<artistseparators>
 			<separator>;</separator>
@@ -318,9 +349,9 @@
 			<to>smb://somecomputer/g-share/dvds/</to> -->
 		</substitute>
 	</pathsubstitution>
-	<remotedelay>10</remotedelay>
-	<enablemultimediakeys>true</enablemultimediakeys>
-	<seeksteps>7, 15, 30, 60, 180, 300, 600, 900, 1800</seeksteps>
+	<remotedelay>3</remotedelay>
+	<enablemultimediakeys>false</enablemultimediakeys>
+	<!-- <seeksteps>7, 15, 30, 60, 180, 300, 600, 900, 1800</seeksteps> -->
 	<touchscreen>
                 <x_offset>0</x_offset>
                 <y_offset>0</y_offset>
