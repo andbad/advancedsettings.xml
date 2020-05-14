@@ -7,6 +7,7 @@
 	<skiploopfilter>0</skiploopfilter>
 	<video>
 		<subsdelayrange>10</subsdelayrange>
+		<maxtempo>2.1</maxtempo>
 		<audiodelayrange>10</audiodelayrange>
 		<usetimeseeking>true</usetimeseeking>
 		<timeseekforwardbig>600</timeseekforwardbig>
@@ -43,17 +44,24 @@
 		<ignorepercentatend>8</ignorepercentatend>
 		<vdpauscaling>true</vdpauscaling>
 		<enablehighqualityhwscalers>true</enablehighqualityhwscalers>
-		<dxvaallowhqscaling>true</dxvaallowhqscaling>
+		<dxvaallowhqscaling>false</dxvaallowhqscaling>
 		<ppffmpegdeinterlacing>linblenddeint</ppffmpegdeinterlacing>
 		<ppffmpegpostprocessing>ha:128:7,va,dr</ppffmpegpostprocessing>
 		<autoscalemaxfps>30</autoscalemaxfps>
 		<adjustrefreshrate>
 			<!--<override>
+      				<fps>23.976</fps>
+      				<refresh>60.0</refresh>
+    			</override>
+			<override>
 				<fpsmin>29.96</fpsmin>
 				<fpsmax>30.01</fpsmax>
 				<refreshmin>59.0</refreshmin>
 				<refreshmax>61.0</refreshmax>
 			</override>
+			<fallback>
+				<refresh>50.0</refresh>
+			</fallback>
 			<fallback>
 				<refreshmin>49.0</refreshmin>
 				<refreshmax>51.0</refreshmax>
@@ -68,8 +76,8 @@
 				<min>23</min>
 				<max>24</max>
 				<delay>125</delay>
-			</refresh>-->
-			<!--<refresh>
+			</refresh>
+			<refresh>
 				<rate>50</rate>
 				<delay>50</delay>
 			</refresh>-->
@@ -78,9 +86,9 @@
 		<stereoscopicregexsbs>[-. _]h?sbs[-. _]</stereoscopicregexsbs>
 		<stereoscopicregextab>[-. _]h?tab[-. _]</stereoscopicregextab>
 		<assfixedworks>false</assfixedworks>
-		<cleandatetime>(.+[^ _\,\.\(\)\[\]\-])[ _\.\(\)\[\]\-]+(19[0-9][0-9]|20[0-1][0-9])([ _\,\.\(\)\[\]\-][^0-9]|$)</cleandatetime>
+		<cleandatetime>(.*[^ _\,\.\(\)\[\]\-])[ _\.\(\)\[\]\-]+(19[0-9][0-9]|20[0-9][0-9])([ _\,\.\(\)\[\]\-]|[^0-9]$)?</cleandatetime>
 		<cleanstrings>
-			<regexp>[ _\,\.\(\)\[\]\-](ac3|dts|custom|dc|divx|divx5|dsr|dsrip|dutch|dvd|dvdrip|dvdscr|dvdscreener|screener|dvdivx|ca$
+			<regexp>[ _\,\.\(\)\[\]\-](ac3|dts|custom|dc|remastered|divx|divx5|dsr|dsrip|dutch|dvd|dvd5|dvd9|dvdrip|dvdscr|dvdscreener|screener|dvdivx|cam|fragment|fs|hdtv|hdrip|hdtvrip|internal|limited|multisubs|ntsc|ogg|ogm|pal|pdtv|proper|repack|rerip|retail|r3|r5|bd5|se|svcd|swedish|german|read.nfo|nfofix|unrated|extended|ws|telesync|ts|telecine|tc|brrip|bdrip|480p|480i|576p|576i|720p|720i|1080p|1080i|3d|hrhd|hrhdtv|hddvd|bluray|x264|h264|xvid|xvidvd|xxx|www.www|cd[1-9]|\[.*\])([ _\,\.\(\)\[\]\-]|$)</regexp>
 			<regexp>(\[.*\])</regexp>
 		</cleanstrings>
 		<!-- <cleanstrings action="append">
@@ -100,6 +108,9 @@
 			<!-- <regexp>[-\._ ](podcast)[-\._ ]</regexp> -->
 		</excludefromlisting>
 		<ac3downmixgain>12.0</ac3downmixgain>
+		<usetimeseeking>true</usetimeseeking>
+		<timeseekforwardbig>600</timeseekfowardbig>
+		<timeseekbackwardbig>-600</timeseekbackward>
 		<playcountminimumpercent>99</playcountminimumpercent> 
 		<applydrc>-1.0</applydrc> 
 		<limiterhold>0.025</limiterhold> 
@@ -122,10 +133,10 @@
 	</pvr>
 	<epg>
 		<updatecheckinterval>300</updatecheckinterval>
+		<updateemptytagsinterval>60</updateemptytagsinterval>
 		<cleanupinterval>900</cleanupinterval>
 		<activetagcheckinterval>60</activetagcheckinterval>
-		<retryinterruptedupdateinterval>30</retryinterruptedupdateinterval>
-		<updateemptytagsinterval>60</updateemptytagsinterval>
+		<retryinterruptedupdateinterval>60</retryinterruptedupdateinterval>
 		<displayupdatepopup>true</displayupdatepopup>
 		<displayincrementalupdatepopup>false</displayincrementalupdatepopup>
 	</epg>
@@ -146,11 +157,12 @@
 	</languagecodes>
 	<sorttokens>
 		<token>the</token>
+		<token separators="'">L</token>
 	</sorttokens>
 	<moviestacking>
 		<regexp>(.*?)([ _.-]*(?:cd|dvd|p(?:ar)?t|dis[ck])[ _.-]*[0-9]+)(.*?)(\.[^.]+)$</regexp>
 		<regexp>(.*?)([ _.-]*(?:cd|dvd|p(?:ar)?t|dis[ck])[ _.-]*[a-d])(.*?)(\.[^.]+)$</regexp>
-		<regexp>(.*?)([ ._-]*[a-d])(.*?)(\.[^.]+)$</regexp>
+  		<regexp>(.*?)([ ._-]*[a-d])(.*?)(\.[^.]+)$</regexp>
 	</moviestacking>
 	<!-- <moviestacking action="append">
       		<regexp>(.*?)([ ._-]*[0-9])(.*?)(\.[^.]+)$</regexp>
@@ -162,15 +174,13 @@
 		<regexp>((cd|dvd|dis[ck])[0-9]+)$</regexp>
 	</folderstacking>
 	<tvshowmatching>
-		<regexp>s([0-9]+)[ ._x-]*e([0-9]+(?:(?:[a-i]|\\.[1-9])(?![0-9]))?)([^\\\\/]*)$</regexp>
-		<regexp>[\._ -]()[Ee][Pp]_?([0-9]+)([^\\/]*)$</regexp>
-		<regexp>([0-9]{4})[\.-]([0-9]{2})[\.-]([0-9]{2})</regexp>
-		<regexp>([0-9]{2})[\.-]([0-9]{2})[\.-]([0-9]{4})</regexp>
-		<regexp>[\\/\._ \[\(-]([0-9]+)x([0-9]+)([^\\/]*)$</regexp>
-		<regexp>[\\/\._ -]([0-9]+)([0-9][0-9])([\._ -][^\\/]*)$</regexp>
-		<regexp>[\/._ -]p(?:ar)?t[_. -]()([ivx]+)([._ -][^\/]*)$</regexp>
-		<!-- <regexp>[/\._ \-]()([0-9]+)(-[0-9]+)?</regexp>
-		<regexp defaultseason="1">[/\._ \-]E()([0-9]+)(-[0-9]+)?</regexp> -->
+		<regexp>s([0-9]+)[ ._x-]*e([0-9]+(?:(?:[a-i]|\\.[1-9])(?![0-9]))?)([^\\\\/]*)$</regexp>  <!-- foo.s01.e01, foo.s01_e01, S01E02 foo, S01 - E02, S01xE02 -->
+		<regexp>[\._ -]()[Ee][Pp]_?([0-9]+)([^\\/]*)$</regexp>  <!-- foo.ep01, foo.EP_01 -->
+		<regexp>([0-9]{4})[\.-]([0-9]{2})[\.-]([0-9]{2})</regexp>  <!-- foo.yyyy.mm.dd.* (byDate=true) -->
+		<regexp>([0-9]{2})[\.-]([0-9]{2})[\.-]([0-9]{4})</regexp>  <!-- foo.mm.dd.yyyy.* (byDate=true) -->
+		<regexp>[\\/\._ \[\(-]([0-9]+)x([0-9]+)([^\\/]*)$</regexp>  <!-- foo.1x09* or just /1x09* -->
+		<regexp>[\\/\._ -]([0-9]+)([0-9][0-9])([\._ -][^\\/]*)$</regexp>  <!-- foo.103*, 103 foo -->
+		<regexp>[\/._ -]p(?:ar)?t[_. -]()([ivx]+)([._ -][^\/]*)$</regexp>  <!-- Part I, Pt.VI -->
 	</tvshowmatching>
 	<!-- <tvshowmatching action="append">
 		<regexp>(ignore)</regexp>
@@ -186,12 +196,48 @@
 		<allitemsonbottom>false</allitemsonbottom>
 		<cleanonupdate>false</cleanonupdate>
 		<usefasthash>true</usefasthash>
-		<recentlyaddeditems>25</recentlyaddeditems>
+		<recentlyaddeditems>35</recentlyaddeditems>
 		<itemseparator> / </itemseparator>
 		<exportautothumbs>false</exportautothumbs>
 		<importwatchedstate>false</importwatchedstate>
 		<importresumepoint>false</importresumepoint>
 		<dateadded>1</dateadded>
+		<tvshowextraart>
+			<arttype>characterart</arttype>
+			<arttype>clearart</arttype>
+			<arttype>clearlogo</arttype>
+			<arttype>landscape</arttype>
+			<arttype>keyart</arttype>
+		</tvshowextraart>
+		<tvseasonextraart>
+			<arttype>landscape</arttype>
+		</tvseasonextraart>
+		<episodeextraart>
+			<arttype>fanart</arttype>
+		</episodeextraart>
+		<movieextraart>
+			<arttype>banner</arttype>
+			<arttype>clearart</arttype>
+			<arttype>clearlogo</arttype>
+			<arttype>discart</arttype>
+			<arttype>landscape</arttype>
+			<arttype>keyart</arttype>
+		</movieextraart>
+		<moviesetextraart>
+			<arttype>banner</arttype>
+			<arttype>clearart</arttype>
+			<arttype>clearlogo</arttype>
+			<arttype>discart</arttype>
+			<arttype>landscape</arttype>
+			<arttype>keyart</arttype>
+		</moviesetextraart>
+		<musicvideoextraart>
+			<arttype>banner</arttype>
+			<arttype>clearart</arttype>
+			<arttype>clearlogo</arttype>
+			<arttype>discart</arttype>
+			<arttype>landscape</arttype>
+		</musicvideoextraart>
 	</videolibrary>
 	<videoscanner>
 		<ignoreerrors>true</ignoreerrors>
@@ -287,15 +333,14 @@
 	<cddbaddress>freedb.freedb.org</cddbaddress>
 	<songinfoduration>10</songinfoduration>
 	<musicfilenamefilters>
-		<filter>%A - %T</filter>
+		<!--<filter>%A - %T</filter>-->
 	</musicfilenamefilters>
 	<musiclibrary>
-		<hideallitems>true</hideallitems>
 		<allitemsonbottom>true</allitemsonbottom>
-		<promptfulltagscan>false</promptfulltagscan>
-		<recentlyaddeditems>25</recentlyaddeditems>
-		<albumformat>%B</albumformat>
-		<prioritiseapetags>false</prioritiseapetags>
+		<cleanonupdate>false</cleanonupdate>
+		<recentlyaddeditems>35</recentlyaddeditems>
+		<albumformat>%B - %Y</albumformat>
+		<prioritiseapetags>true</prioritiseapetags>
 		<itemseparator> / </itemseparator>
 		<artistseparators>
 			<separator>;</separator>
@@ -305,6 +350,18 @@
 			<separator> ft. </separator>
 		</artistseparators>
 		<dateadded>1</dateadded>
+		<useartistsortname>false</useartistsortname>
+		<artistextraart>
+			<arttype>banner</arttype>
+			<arttype>clearlogo</arttype>
+			<arttype>clearart</arttype>
+			<arttype>landscape</arttype>
+		</artistextraart>
+		<albumextraart>
+			<arttype>discart</arttype>
+			<arttype>spine</arttype>
+			<arttype>back</arttype>
+		</albumextraart>
 	</musiclibrary>
 	<pictureextensions>
 		<!-- <add>.ex1|.ex2</add>
@@ -350,8 +407,8 @@
 		</substitute>
 	</pathsubstitution>
 	<remotedelay>3</remotedelay>
-	<enablemultimediakeys>false</enablemultimediakeys>
-	<!-- <seeksteps>7, 15, 30, 60, 180, 300, 600, 900, 1800</seeksteps> -->
+	<enablemultimediakeys>true</enablemultimediakeys>
+	<seeksteps>7, 15, 30, 60, 180, 300, 600, 900, 1800</seeksteps>
 	<touchscreen>
                 <x_offset>0</x_offset>
                 <y_offset>0</y_offset>
@@ -365,15 +422,19 @@
 	<restrictcapsmask>0</restrictcapsmask>
 	<gui>    
 		<algorithmdirtyregions>3</algorithmdirtyregions>
-	</gui>
-	<gui>    
 		<visualizedirtyregions>false</visualizedirtyregions>
+		<smartredraw>true</smartredraw>
 	</gui>
 	<showexitbutton>true</showexitbutton>
 	<fullscreen>false</fullscreen>
 	<splash>true</splash>
-	<!-- <cputempcommand>echo "$(sensors -u | tail -n64 | grep temp1_input | awk '{print $2 }' |awk '{printf("%d\n",$1 + 0.5);}') C"</cputempcommand> -->
-	<!-- <gputempcommand>echo "$(nvidia-settings -tq gpuCoreTemp) C"</gputempcommand> -->
+	<!--<cputempcommand>sed -e 's/\([0-9]*\)[0-9]\{3\}.*/\1 C/' /sys/class/thermal/thermal_zone0/temp</cputempcommand>-->
+	<!--<cputempcommand>echo "$(sensors -u | tail -n64 | grep temp1_input | awk '{print $2 }' |awk '{printf("%d\n",$1 + 0.5);}') C"</cputempcommand>-->	<!-- <gputempcommand>echo "$(nvidia-settings -tq gpuCoreTemp) C"</gputempcommand>-->
+	<!--<cputempcommand>sensors|sed -ne "s/temp1: \+[-+]\([0-9]\+\).*/\1 C/p"</cputempcommand>-->
+	<!--<gputempcommand>echo "$(nvidia-settings -tq gpuCoreTemp) C"</gputempcommand>-->
+	<!--<gputempcommand>echo "$(nvidia-smi -q -d TEMPERATURE | grep Gpu | cut -c35-36) C"</gputempcommand>-->
+	<!--<gputempcommand>/usr/bin/aticonfig --od-gettemperature | grep Temperature | cut -f 2 -d "-" | cut -f 1 -d "." | sed -e "s, ,," | sed 's/$/ C/'</gputempcommand>-->
+	<!--<gputempcommand>/opt/vc/bin/vcgencmd measure_temp | sed -e "s/temp=//" -e "s/\..*'/ /"</gputempcommand>-->
 	<glrectanglehack>no</glrectanglehack>
 	<alwaysontop>yes</alwaysontop>
 </advancedsettings>
